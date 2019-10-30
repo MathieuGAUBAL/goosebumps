@@ -10,7 +10,7 @@ a {
 /* header */
 
 .header {
-    background-color: rgb(32, 31, 31);
+    background-color: black;
     position: fixed;
     width: 100%;
     z-index: 3;
@@ -22,7 +22,7 @@ a {
     padding: 0;
     list-style: none;
     overflow: hidden;
-    background-color: rgb(32, 31, 31);
+    background-color: black;
 }
 
 .header li a {
@@ -33,7 +33,7 @@ a {
 
 .header li a:hover,
 .header .menu-btn:hover {
-    background-color: #4b4a4a;
+    background-color: orangered;
 }
 
 .header .brandlogo {
@@ -149,6 +149,7 @@ a {
 }
 
 @media (min-width: 721px) {
+   
     .header li {
         float: left;
     }
