@@ -6,10 +6,18 @@
 }
 
 
+@font-face{ 
+  font-family: 'fear';
+  src: url("./fonts/fofbb_reg.ttf")
+
+}
+
+
 /*image doit etre entoure d'une div*/
 .image-resize{height:auto; width:100%}
+
 @media screen and (max-width: 540px) {
-    .mob-0{display: none;}
+    .mob-0 {display: none;}
     .mob-1{width:8.33%;}
     .mob-2{width:16.66%;}
     .mob-3{width:25%;}
@@ -26,8 +34,9 @@
 
     .row-mob{display:flex; flex-direction: row}
     .col-mob{display:flex; flex-direction: column}
+
 }
-  
+
 @media screen and (max-width: 540px){
     .mob-offset-0{display:none}
     .mob-offset-1{margin-left:8.30%}
@@ -45,7 +54,9 @@
 
   }
 
+
 @media screen and (min-width: 541px) and (max-width: 720px){
+
     
     .tab-0 {display: none;}
     .tab-1{width:8.33%;}
@@ -61,7 +72,6 @@
     .tab-11{width:91.66%;}
     .tab-12{width:100%;}
 
-
     .row-tab{display:flex; flex-direction: row}
     .col-tab{display:flex; flex-direction: column}
 
@@ -70,6 +80,7 @@
 
 
 @media screen and (min-width: 541px) and (max-width: 720px){
+
     .tab-offset-0{display:none}
     .tab-offset-1{margin-left:8.30%}
     .tab-offset-2{margin-left:16.6%}
@@ -84,11 +95,10 @@
     .tab-offset-11{margin-left:91.6%}
     .tab-offset-12{margin-left:100%}
 
-}
-
+  }
+ 
 
 @media screen and (min-width: 721px) {
-
     .dsk-0 {display: none;}
     .dsk-1{width:8.33%;}
     .dsk-2{width:16.66%;}
@@ -105,7 +115,10 @@
 
     .row{display:flex; flex-direction: row}
     .col{display:flex; flex-direction: column}
-}
+
+
+
+    }
 
 
 @media screen and (min-width: 721px) {
@@ -124,6 +137,9 @@
     .dsk-offset-11{margin-left:91.6%}
     .dsk-offset-12{margin-left:100%}
 
+  }
 
-}
+
+
+
 
