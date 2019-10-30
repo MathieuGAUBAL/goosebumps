@@ -1,0 +1,46 @@
+
+
+@media screen and (max-width: 540px){
+  .container-picto ul{
+    display:flex;
+    flex-direction: row;
+  }
+  .container-picto ul li{
+    margin-right:1rem;
+  }
+}
+
+@media screen and (min-width: 541px) and (max-width: 720px){ 
+  .container-picto ul{
+    display:flex;
+    flex-direction: row;
+  }
+  .container-picto ul li{
+    margin-right:1rem;
+  }
+}
+
+@media screen and (min-width: 721px){
+  .container-picto ul{
+    display:flex;
+    flex-direction: row;
+  }
+  .container-picto ul li{
+    margin-right:1rem;
+  }
+}
+
+
+
+
+.fab{
+  color:#f46928;
+}
+
+.container-picto ul{
+  list-style: none;
+}
+
+.container-picto ul li{
+  margin-bottom:1rem;
+}
