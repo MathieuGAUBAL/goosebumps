@@ -2,71 +2,116 @@ import React, { Component } from 'react';
 import './../mediaQueries.css';
 import './homepage.css'
 import axios from 'axios'
+import Formulaire from './Formulaire';
+
 
 
 const SampleMonster ={
     name : 'Maybe a vampire?',
-    picture: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ9QBj4KvUTaaXcgiXSgSflr3gwlx6h8OCZwKR355wdRCrBNQl_qQ&s",
+    picture: "http://bexshea.com/wp-content/uploads/2016/06/giphy.gif",
 }
 
 class Homepage  extends Component {
     constructor(props) {
         super(props);
         this.state = { 
-            monster: SampleMonster
+            monster: SampleMonster,
+            monsterData: [],
+            moviesData: [],
+            moviesToDisplay: []
         }
+        this.zombiesMovies = [];
+    }
+
+    componentDidMount() {
+        this.getMonsters();
+        this.getMovies();
+    }
+
+    handleChangePicture = event => {
+        console.log('RESULTAT : ' + `'${event.target.value}'`)
+
+        this.setState({
+            monster: `'${event.target.value}'`
+        });
+        if (event.target.value === "1") {
+            this.setState({ moviesToDisplay: this.zombiesMovies })
+        }
+
+    }
+
+    getMonsters() {
+        axios.get('https://hackathon-wild-hackoween.herokuapp.com/monsters')
+            .then(response => response.data)
+            .then(data => {
+                this.setState({
+                    monsterData: data.monsters
+                });
+            });
+    }
+
+    getMovies() {
+        axios.get('https://hackathon-wild-hackoween.herokuapp.com/movies')
+            .then(response => response.data)
+            .then(data => {
+                this.setState({
+                    moviesData: data.movies
+                });
+                this.zombiesMovies = [
+                    this.state.moviesData[80],
+                    this.state.moviesData[79],
+                    this.state.moviesData[75],
+                    this.state.moviesData[68],
+                    this.state.moviesData[67],
+                    this.state.moviesData[61],
+                    this.state.moviesData[38]
+                ];
+
+            });
+
     }
     
-    getApi() {
-        
-        axios.get('https://hackathon-wild-hackoween.herokuapp.com/monsters')
-        .then(response => response.data)
-        .then(data => {
-            console.log(data)
-            this.setState({
-                
-                monster: data,
-            });
-        });
-    }
     
     render() { 
         return ( 
-            <div className="bckHome dsk-offset-1 tab-offset-1 mob-offset-1 dsk-10 mob-10 tab-10">
+            <div className="bckHome  dsk-12 mob-12 tab-12">
             
             <h1 className="TitleHome">Your favorite Monster</h1>
-            
-            {/* image qui apparaît en fonction du choix du monstre */}
-            
-            <div className="col dsk-10 mob-8 tab-10 dsk-offset-1 tab-offset-1 mob-offset-1 container-monster">
-            <div className="dsk-11 mob-10 tab-10 tab-offset-1 mob-offset-1  container-image-monster"><img className="image-resize monsterImage" src={this.state.monster.picture} alt=""/></div>
-            <div className=" dsk-11 mob-10 tab-10 tab-offset-1 mob-offset-1  container-text-monster"><p>Which monstruosity could it be? <span className="nameMonster">{this.state.monster.name}</span></p></div>
-            </div>
-            
-            <div className="bckchoice col dsk-offset-4 dsk-4 mob-4 tab-4 tab-offset-4 mob-offset-4  ">
-            <div className="col">
-            <div className="dsk-2 mob-2 tab-2 dsk-offset-5 tab-offset-5 mob-offset-5"> 
-            <img className="image-resize" src="https://cdn0.iconfinder.com/data/icons/emojis-colored-outlined-pixel-perfect/64/emoji-50-512.png"></img>
-            </div>
-            <div className="dsk-12 dsk-offset-2">
-            <p>Choose your monster</p>
-            </div>
-            
 
-            <div className="dsk-12 dsk-offset-2">
-            <select name="monsters" id="monster-choice">
-            <option value="">--Spawns of evil--</option>
-            <option value="Example">Example</option>
-            
+            {/* container*/}
+            <div className="row dsk-8 mob-8 tab-10 dsk-offset-2 tab-offset-1 mob-offset-2 container-monster">
+
+                {/* container-image*/}
+            <div className="dsk-12 mob-10 tab-10 tab-offset-1 mob-offset-1  container-image-monster">
+                <img className="image-resize monsterImage" src={this.state.monster.picture} alt=""/></div>
+
+                {/* container-texte*/}
+            <div className="col dsk-12 mob-10 tab-10 tab-offset-1 mob-offset-1  container-text-monster">
+            <div className="text"><p className="smalltext">Which monstruosity are you?</p></div> 
+            <div className="textstate"><p className="nameMonster">{this.state.monster.name}</p></div> 
+
+            {/* choix du monstre */}
+            <div className=" mtop custom-select dsk-12 jcontent tab-offset-5 mob-offset-5 mob-2 tab-2 ">
+            <select className="classic" onChange={this.handleChangePicture} name="monsters" id="monster-choice">
+               
+                {this.state.monsterData.length === 0 ? '' :
+                                    <>
+                                         <option>Spawns of Evil</option>
+                                        <option value="1"> {this.state.monsterData[1].name} </option>
+                                        <option value="11"> {this.state.monsterData[11].name} </option>
+                                        <option value="16"> {this.state.monsterData[16].name} </option>
+                                    </>
+                                }
             </select>
             </div>
+           
+
             </div>
             </div>
-            <button className="" >Find your movie</button>
-            
-            
-            
-            
+
+            {this.state.moviesToDisplay.length > 0 &&
+                    this.state.moviesToDisplay.map(movie => <p>{movie.title}</p>)
+                }
             </div>
             
             
