@@ -9,21 +9,27 @@ font-family: 'fear';
 font-size: 4rem;
 text-align: center;
 border-bottom: 2px solid black;
-
+margin-top: 5%;
 }
 
 .container-monster{
-    margin-top: 5%;
+    margin-top: 10%;
     align-items: center;
     margin-bottom: 5%;
     border:2px solid black;
 }
 
-.container-monster-image{
 
-   
-    
+
+.bckchoice{
+    background: #f2e8c6;
+height:auto;
+border: 2px solid black;
 }
+
+.aligncenter{align-items: center}
+
+.nameMonster{color:red;}
 
 .monsterImage{
     z-index: 10;
@@ -48,11 +54,9 @@ border-bottom: 2px solid black;
 
 
 @media screen and (max-width: 540px){
-
     .TitleHome{font-size:1rem}
 }
 
 @media screen and (min-width: 541px) and (max-width: 720px){
-
-    .TitleHome{font-size:1.5rem}
+    .TitleHome{font-size:1.5rem; margin-top: 10%;}
 }
