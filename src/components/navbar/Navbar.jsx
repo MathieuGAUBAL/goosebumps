@@ -11,7 +11,7 @@ let Navbar = () =>
                     <label className="menu-icon" htmlFor="menu-btn"><span className="navicon"></span></label>
                     <ul className="menu">
                         <li><a href="index.html">HOME</a></li>
-                        <li><a href="quizz.html">QUIZZ</a></li>
+                        <li><a href="contact.html">CONTACT</a></li>
                     </ul>
                 </nav>
             </React.Fragment>
