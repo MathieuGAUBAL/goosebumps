@@ -5,6 +5,7 @@ import axios from 'axios'
 import Movie from '../movie/Movie';
 import '../movie/movie.css';
 
+
 const SampleMonster ={
     name : 'Maybe a vampire?',
     picture: "http://bexshea.com/wp-content/uploads/2016/06/giphy.gif",
@@ -30,23 +31,28 @@ const vampire={
 class Homepage  extends Component {
     constructor(props) {
         super(props);
+        this.myRef = React.createRef() 
         this.state = { 
             monster: SampleMonster,
             monsterData: [],
             moviesData: [],
             moviesToDisplay: [],
             
+            
            
         }
         this.zombiesMovies = [];
         this.vampiresMovies = [];
         this.daemonsMovies = [];
+        this.myDivToFocus = React.createRef()
     }
 
     componentDidMount() {
         this.getMonsters();
         this.getMovies();
     }
+
+    
 
     handleChangePicture = event => {
         console.log('RESULTAT : ' + `'${event.target.value}'`)
@@ -70,7 +76,6 @@ class Homepage  extends Component {
         if (event.target.value === "100") {
             this.setState({ moviesToDisplay: "" })
             this.setState({monster: SampleMonster})
-            
         }
     }
 
@@ -127,14 +132,16 @@ class Homepage  extends Component {
     
     
     render() { 
-       
+
+
+    
         return ( 
             <div className="bckHome  dsk-12 mob-12 tab-12">
             
             <h1 className="TitleHome">Your favorite Monster</h1>
 
             {/* container*/}
-            <div className="row dsk-8 mob-8 tab-10 dsk-offset-2 tab-offset-1 mob-offset-2 container-monster">
+            <div className="row col-tab colh dsk-8 mob-8 tab-10 dsk-offset-2 tab-offset-1 mob-offset-2 container-monster">
 
                 {/* container-image*/}
 
@@ -151,6 +158,10 @@ class Homepage  extends Component {
 
             {/* choix du monstre */}
             <div className=" mtop custom-select dsk-12 jcontent tab-offset-5 mob-offset-5 mob-2 tab-2 ">
+
+
+           
+      
             <select className="classic" onChange={this.handleChangePicture} name="monsters" id="monster-choice">
                
                 {this.state.monsterData.length === 0 ? '' :
@@ -162,6 +173,7 @@ class Homepage  extends Component {
                                     </>
                                 }
             </select>
+                
             </div>
            
 
@@ -169,6 +181,8 @@ class Homepage  extends Component {
             </div>
 
             
+
+        
             {
                     this.state.moviesToDisplay.length > 0 &&
                     <Movie movie={this.state.moviesToDisplay} />

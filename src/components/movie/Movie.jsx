@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import './../mediaQueries.css';
+import LinkButton from '../LinkButton';
 
 
 
@@ -23,7 +24,13 @@ function Movie({ movie }) {
                         <li className="movieDirector">Director : {filter(element.director)}</li>
                         <li className="movieYear">Years : {element.year}</li>
                         <li className="movieCountry">Country : {filter(element.country)}</li>
+                        
                     </ul>
+                    <div className="link">
+                        <LinkButton className="button4" to='/WatchMovie'>Watch Movie</LinkButton>
+                    </div>
+                    
+                   
                 </div>
             </div>
         )

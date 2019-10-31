@@ -1,0 +1,10 @@
+.error{
+    background-size: contain;
+    width:100vw;
+    background-color: black;
+}
+.error-play{
+    width:100px;
+    margin-top:8%;
+
+}

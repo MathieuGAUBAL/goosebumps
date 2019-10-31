@@ -7,7 +7,7 @@ class Footer extends Component{
     render(){
         return(
             <div className='footer'>
-                    <div className="list-footer">
+                    <div className="list-footer col-tab">
                         <ul className="ul-list-footer col-mob">
                             <li>
                                 <p>About us</p>
@@ -20,12 +20,12 @@ class Footer extends Component{
                             </li>
                         </ul>
                     </div>
-                    
-                    <PictoReseauxSociaux />
 
                     <div className="logo-div"> 
                         <img className="logo-footer" src={logo} alt=""/>
                     </div>
+
+                    <PictoReseauxSociaux />
             </div>
         )
     }

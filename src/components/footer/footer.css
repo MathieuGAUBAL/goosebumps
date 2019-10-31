@@ -2,7 +2,7 @@
 
 
 
-  @media screen and (max-width: 720px){
+  @media screen and (max-width: 920px){
 
     
     .footer{
@@ -12,6 +12,10 @@
         height: auto;
 
         padding:2rem;
+    }
+
+    .logo-div{
+        margin-bottom:5%;
     }
     
     .ul-list-footer{
@@ -30,26 +34,27 @@
     color:white;
   }
   .logo-footer{
-    width:40px;
+    width:90px;
 }
 
-
-@media screen and (min-width: 721px){
+@media screen and (min-width: 921px){
     .ul-list-footer{
         display:flex;
         flex-direction: row;
         list-style: none;
+        margin-right: -220px;
     }
     .ul-list-footer li{
         margin-right: 2rem;
     }
 
 
+
     .footer{
         display:flex;
         justify-content:space-around;
         align-items: center;
-        height:200px;
+        height:180px;
     }
   }
 
